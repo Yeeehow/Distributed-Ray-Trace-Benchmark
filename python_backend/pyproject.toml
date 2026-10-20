@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "drt_backend"
+version = "1.0.0"
+description = "Distributed Ray Trace CPU path-tracing backend"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["numpy>=2.3,<3", "pygltflib>=1.16,<2", "Pillow==13.0.0"]
+
+[project.scripts]
+drt-agent = "drt_backend.application.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["drt_backend", "drt_backend.*", "drt_scheduler", "drt_scheduler.*"]
+
+[tool.pytest.ini_options]
+testpaths = ["../../tools/verification"]
+addopts = "--import-mode=importlib"

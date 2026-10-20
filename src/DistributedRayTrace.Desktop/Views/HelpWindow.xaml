@@ -1,0 +1,34 @@
+<Window x:Class="DistributedRayTrace.Desktop.Views.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Help — Distributed Ray Trace" Width="740" Height="620" MinWidth="620" MinHeight="480"
+        WindowStartupLocation="CenterOwner" ShowInTaskbar="False" UseLayoutRounding="True"
+        Background="{StaticResource WindowBrush}" Foreground="{StaticResource TextBrush}"
+        FontFamily="Segoe UI" FontSize="12">
+    <Grid Margin="20">
+        <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+        <TextBlock Text="{Binding Identity}" FontSize="16" FontWeight="SemiBold" TextWrapping="Wrap" Margin="0,0,0,18" Foreground="{StaticResource AccentBrush}" />
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="170"/><ColumnDefinition Width="18"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+            <ListBox ItemsSource="{Binding Pages}" SelectedItem="{Binding SelectedPage, Mode=TwoWay}" DisplayMemberPath="Title"
+                     AutomationProperties.Name="Help topics" Background="{StaticResource InsetBrush}" Foreground="{StaticResource TextBrush}"
+                     BorderBrush="{StaticResource BorderBrush}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
+            <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" PanningMode="VerticalOnly">
+                <StackPanel Margin="0,0,8,0">
+                    <TextBlock Text="{Binding SelectedPage.Title}" FontSize="20" FontWeight="SemiBold" Margin="0,0,0,14" />
+                    <ItemsControl ItemsSource="{Binding SelectedPage.Paragraphs}">
+                        <ItemsControl.ItemTemplate><DataTemplate>
+                            <StackPanel Margin="0,0,0,16">
+                                <TextBlock Text="{Binding Heading}" FontSize="13" FontWeight="SemiBold" TextWrapping="Wrap" Margin="0,0,0,6" />
+                                <TextBox Text="{Binding Body,Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap"
+                                         BorderThickness="0" Background="Transparent" Padding="0" Foreground="{StaticResource SecondaryTextBrush}"
+                                         FontSize="12" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" />
+                            </StackPanel>
+                        </DataTemplate></ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+        <Button Grid.Row="2" Content="Close" IsCancel="True" HorizontalAlignment="Right" MinWidth="80" Padding="12,6" Margin="0,16,0,0" />
+    </Grid>
+</Window>

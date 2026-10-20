@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <!-- Native PTVS project format verified against the installed VS2022 Python template. -->
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">17.0</VisualStudioVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{84887235-B19A-4041-A1EC-FD3D0432CA81}</ProjectGuid>
+    <Name>DistributedRayTrace.PythonBackend</Name>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>ide_debug.py</StartupFile>
+    <SearchPath>src</SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <CommandLineArguments>--help</CommandLineArguments>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <Environment>PYTHONDONTWRITEBYTECODE=1</Environment>
+    <InterpreterId>MSBuild|.venv|$(MSBuildProjectFullPath)</InterpreterId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="src\drt_backend\room_pbr\local_node.py" />
+    <Compile Include="src\drt_backend\application\worker_cli.py" />
+    <Compile Include="src\drt_backend\pbr_execution\__init__.py" />
+    <Compile Include="src\drt_backend\pbr_execution\codec.py" />
+    <Compile Include="src\drt_backend\pbr_execution\worker.py" />
+    <Compile Include="src\drt_backend\pbr_execution\preview.py" />
+    <Compile Include="src\drt_backend\pbr_execution\service.py" />
+    <Compile Include="src\drt_backend\pbr_execution\protocol.py" />
+    <Compile Include="src\drt_backend\pbr_execution\profile.py" />
+    <Compile Include="src\drt_backend\pbr_execution\admission.py" />
+    <Compile Include="src\drt_backend\pbr_execution\frontend.py" />
+    <Compile Include="src\drt_backend\room_pbr\__init__.py" />
+    <Compile Include="src\drt_backend\room_pbr\policy.py" />
+    <Compile Include="src\drt_backend\room_pbr\normal_transport.py" />
+    <Compile Include="src\drt_backend\room_pbr\textures.py" />
+    <Compile Include="src\drt_backend\room_pbr\scene.py" />
+    <Compile Include="src\drt_backend\room_pbr\adapter.py" />
+    <Compile Include="src\drt_backend\room_pbr\display.py" />
+    <Compile Include="src\drt_backend\room_pbr\admission.py" />
+    <Compile Include="src\drt_backend\room_pbr\codec.py" />
+    <Compile Include="src\drt_backend\room_pbr\frame_transfer.py" />
+    <Compile Include="src\drt_backend\room_pbr\frontend.py" />
+    <Compile Include="src\drt_backend\room_pbr\preview.py" />
+    <Compile Include="src\drt_backend\room_pbr\profile.py" />
+    <Compile Include="src\drt_backend\room_pbr\protocol.py" />
+    <Compile Include="src\drt_backend\room_pbr\remote.py" />
+    <Compile Include="src\drt_backend\room_pbr\service.py" />
+    <Compile Include="src\drt_backend\room_pbr\topology.py" />
+    <Compile Include="src\drt_backend\room_pbr\worker.py" />
+    <Compile Include="ide_debug.py" />
+    <Content Include="resources\pbr\m64_area_ggx.glb" />
+    <Compile Include="src\drt_backend\lan\__init__.py" />
+    <Compile Include="src\drt_backend\lan\protocol.py" />
+    <Compile Include="src\drt_backend\lan\agent.py" />
+    <Compile Include="src\drt_backend\lan\dynamic_protocol.py" />
+    <Compile Include="src\drt_backend\lan\dynamic_agent.py" />
+    <Compile Include="src\drt_backend\lan\dynamic_coordinator.py" />
+    <Compile Include="src\drt_backend\lan\session_manager.py" />
+    <Compile Include="src\drt_backend\lan\membership.py" />
+    <Compile Include="src\drt_backend\lan\worker_supervisor.py" />
+    <Compile Include="src\drt_backend\lan\tls_stream.py" />
+    <Compile Include="src\drt_backend\lan\attempt_evidence.py" />
+    <Compile Include="src\drt_backend\__init__.py" />
+    <Compile Include="src\drt_backend\__main__.py" />
+    <Compile Include="src\drt_backend\application\__init__.py" />
+    <Compile Include="src\drt_backend\application\cli.py" />
+    <Compile Include="src\drt_backend\application\parallel_service.py" />
+    <Compile Include="src\drt_backend\application\worker_policy.py" />
+    <Compile Include="src\drt_backend\local_parallel\__init__.py" />
+    <Compile Include="src\drt_backend\local_parallel\codec.py" />
+    <Compile Include="src\drt_backend\local_parallel\dispatcher.py" />
+    <Compile Include="src\drt_backend\local_parallel\worker.py" />
+    <Compile Include="src\drt_backend\frozen_entry.py" />
+    <Compile Include="src\drt_backend\raytracing\__init__.py" />
+    <Compile Include="src\drt_backend\raytracing\common\__init__.py" />
+    <Compile Include="src\drt_backend\raytracing\common\_metadata.py" />
+    <Compile Include="src\drt_backend\raytracing\common\errors.py" />
+    <Compile Include="src\drt_backend\raytracing\ecs\__init__.py" />
+    <Compile Include="src\drt_backend\raytracing\ecs\components.py" />
+    <Compile Include="src\drt_backend\raytracing\model\__init__.py" />
+    <Compile Include="src\drt_backend\raytracing\model\camera.py" />
+    <Compile Include="src\drt_backend\raytracing\model\lights.py" />
+    <Compile Include="src\drt_backend\raytracing\model\materials.py" />
+    <Compile Include="src\drt_backend\raytracing\model\rays.py" />
+    <Compile Include="src\drt_backend\raytracing\model\render_config.py" />
+    <Compile Include="src\drt_backend\raytracing\model\textures.py" />
+    <Compile Include="src\drt_backend\raytracing\output\__init__.py" />
+    <Compile Include="src\drt_backend\raytracing\output\png_output.py" />
+    <Compile Include="src\drt_backend\raytracing\rendering\__init__.py" />
+    <Compile Include="src\drt_backend\raytracing\rendering\color_output.py" />
+    <Compile Include="src\drt_backend\raytracing\rendering\normal_visualization.py" />
+    <Compile Include="src\drt_backend\raytracing\resources\__init__.py" />
+    <Compile Include="src\drt_backend\raytracing\resources\image_decoding.py" />
+    <Compile Include="src\drt_backend\raytracing\resources\preparation.py" />
+    <Compile Include="src\drt_backend\raytracing\resources\shaded_context.py" />
+    <Compile Include="src\drt_backend\raytracing\scene\__init__.py" />
+    <Compile Include="src\drt_backend\raytracing\scene\accessors.py" />
+    <Compile Include="src\drt_backend\raytracing\scene\bounds.py" />
+    <Compile Include="src\drt_backend\raytracing\scene\geometry.py" />
+    <Compile Include="src\drt_backend\raytracing\scene\glb_loader.py" />
+    <Compile Include="src\drt_backend\raytracing\scene\inspection.py" />
+    <Compile Include="src\drt_backend\raytracing\scene\render_metadata.py" />
+    <Compile Include="src\drt_backend\raytracing\scene\scene.py" />
+    <Compile Include="src\drt_backend\raytracing\scene\transforms.py" />
+    <Compile Include="src\drt_backend\raytracing\shading\__init__.py" />
+    <Compile Include="src\drt_backend\raytracing\shading\alpha_compositing.py" />
+    <Compile Include="src\drt_backend\raytracing\shading\direct_lighting.py" />
+    <Compile Include="src\drt_backend\raytracing\shading\material_evaluation.py" />
+    <Compile Include="src\drt_backend\raytracing\shading\shadow_visibility.py" />
+    <Compile Include="src\drt_backend\raytracing\shading\texture_sampling.py" />
+    <Compile Include="src\drt_backend\raytracing\shading\textured_material_evaluation.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\__init__.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\sampling.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\contracts.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\accumulation.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\errors.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\pbr_errors.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\pbr_numeric.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\color_space.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\pbr_material.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\surface_frame.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\microfacet.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\fresnel.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\bsdf.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\bsdf_sampling.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\transport_errors.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\camera_sampling.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\transport_policy.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\scene_adapter.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\integrator.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\serial_rendering.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\task_adapter.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\color_pipeline.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\multibounce_policy.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\mis.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\roulette.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\area_emitters.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\multibounce_scene.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\multibounce_integrator.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\multibounce_serial.py" />
+    <Compile Include="src\drt_backend\raytracing\pathtracing\multibounce_adapter.py" />
+    <Compile Include="src\drt_backend\raytracing\tracing\__init__.py" />
+    <Compile Include="src\drt_backend\raytracing\tracing\bvh.py" />
+    <Compile Include="src\drt_backend\raytracing\tracing\intersection.py" />
+    <Compile Include="src\drt_backend\raytracing\tracing\primary_rays.py" />
+    <Compile Include="src\drt_backend\raytracing\tracing\surface_evaluation.py" />
+    <Compile Include="src\drt_backend\raytracing\tracing\surface_queries.py" />
+    <Compile Include="src\drt_scheduler\__init__.py" />
+    <Compile Include="src\drt_scheduler\acceptance.py" />
+    <Compile Include="src\drt_scheduler\attempts.py" />
+    <Compile Include="src\drt_scheduler\dispatch_policy.py" />
+    <Compile Include="src\drt_scheduler\errors.py" />
+    <Compile Include="src\drt_scheduler\interfaces.py" />
+    <Compile Include="src\drt_scheduler\models.py" />
+    <Compile Include="src\drt_scheduler\serial.py" />
+    <Content Include="pyproject.toml" />
+    <Content Include="README.md" />
+    <Compile Include="src\drt_backend\ipc\__init__.py" />
+    <Compile Include="src\drt_backend\ipc\__main__.py" />
+    <Compile Include="src\drt_backend\ipc\host.py" />
+    <Compile Include="src\drt_backend\ipc\diagnostics.py" />
+    <Compile Include="src\drt_backend\raytracing\rendering\ray_metrics.py" />
+    <Compile Include="src\drt_backend\raytracing\tracing\contact_certification.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include=".venv\">
+      <Id>.venv</Id>
+      <Version>3.12</Version>
+      <Description>Project .venv - Python 3.12 development</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="resources\" />
+    <Folder Include="resources\pbr\" />
+    <Folder Include="src\" />
+    <Folder Include="src\drt_backend\" />
+    <Folder Include="src\drt_backend\application\" />
+    <Folder Include="src\drt_backend\lan\" />
+    <Folder Include="src\drt_backend\local_parallel\" />
+    <Folder Include="src\drt_backend\ipc\" />
+    <Folder Include="src\drt_backend\pbr_execution\" />
+    <Folder Include="src\drt_backend\room_pbr\" />
+    <Folder Include="src\drt_backend\raytracing\" />
+    <Folder Include="src\drt_backend\raytracing\common\" />
+    <Folder Include="src\drt_backend\raytracing\ecs\" />
+    <Folder Include="src\drt_backend\raytracing\model\" />
+    <Folder Include="src\drt_backend\raytracing\pathtracing\" />
+    <Folder Include="src\drt_backend\raytracing\output\" />
+    <Folder Include="src\drt_backend\raytracing\rendering\" />
+    <Folder Include="src\drt_backend\raytracing\resources\" />
+    <Folder Include="src\drt_backend\raytracing\scene\" />
+    <Folder Include="src\drt_backend\raytracing\shading\" />
+    <Folder Include="src\drt_backend\raytracing\tracing\" />
+    <Folder Include="src\drt_scheduler\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>

@@ -1,0 +1,6 @@
+# Package build/install output; root policy already covers environments/caches.
+*.egg-info/
+dist/
+build/
+*.whl
+*.log

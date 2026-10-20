@@ -1,0 +1,51 @@
+<Window x:Class="DistributedRayTrace.Desktop.Views.SceneInspectionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Scene Inspection — Distributed Ray Trace" Width="780" Height="660" MinWidth="640" MinHeight="520"
+        WindowStartupLocation="CenterOwner" ShowInTaskbar="False" UseLayoutRounding="True"
+        Background="{StaticResource WindowBrush}" Foreground="{StaticResource TextBrush}"
+        FontFamily="Segoe UI" FontSize="12" Closing="Window_Closing">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/><RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <TextBlock Text="SCENE INSPECTION" FontSize="20" FontWeight="SemiBold" Foreground="{StaticResource AccentBrush}"/>
+            <TextBlock Text="Scene Inspection is not a render benchmark." Margin="0,8,0,16" TextWrapping="Wrap"/>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+            <TextBox Text="{Binding ScenePath, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding CanEdit}"
+                     AutomationProperties.Name="GLB file path" Padding="6" Margin="0,0,10,0"/>
+            <Button Grid.Column="1" Content="Browse GLB…" Command="{Binding BrowseCommand}"/>
+        </Grid>
+        <StackPanel Grid.Row="2" Margin="0,12,0,12">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Scene Index (optional)" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <TextBox Text="{Binding SceneIndexText, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding CanEdit}"
+                         AutomationProperties.Name="Optional scene index" Width="70" Padding="5" Margin="0,0,16,0"/>
+                <Button Content="Inspect" Command="{Binding InspectCommand}" Margin="0,0,8,0"/>
+                <Button Content="Cancel" Command="{Binding CancelCommand}"/>
+            </StackPanel>
+            <TextBlock Text="{Binding StatusText}" FontWeight="SemiBold" Foreground="{StaticResource AccentBrush}" Margin="0,14,0,6"/>
+            <TextBlock Text="{Binding Feedback}" TextWrapping="Wrap"/>
+        </StackPanel>
+        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel>
+                <ItemsControl ItemsSource="{Binding Values}">
+                    <ItemsControl.ItemTemplate><DataTemplate>
+                        <Grid Margin="0,0,0,7">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="180"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Label}" Foreground="{StaticResource SecondaryTextBrush}"/>
+                            <TextBlock Grid.Column="1" Text="{Binding Value}" FontWeight="SemiBold"/>
+                        </Grid>
+                    </DataTemplate></ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <TextBlock Text="Validation Issues" FontWeight="SemiBold" Margin="0,12,0,6"/>
+                <TextBlock Text="{Binding Issues}" TextWrapping="Wrap"/>
+            </StackPanel>
+        </ScrollViewer>
+        <Button Grid.Row="4" Content="Close" Click="Close_Click" HorizontalAlignment="Right" MinWidth="80" Margin="0,12,0,0"/>
+    </Grid>
+</Window>

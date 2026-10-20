@@ -1,0 +1,11 @@
+[
+  {
+    "Name": "DistributedRayTrace.Desktop",
+    "Projects": [
+      {
+        "Path": "src\\DistributedRayTrace.Desktop\\DistributedRayTrace.Desktop.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
