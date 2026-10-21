@@ -4,7 +4,7 @@
 
 **A CPU path-tracing benchmark comparing serial, local multiprocessing, and LAN execution.**
 
-[项目简介 / Overview](#overview) · [数学模型 / Mathematics](#mathematics) · [渲染 Pass / Rendering pass](#rendering-pass) · [本地并行 / Local parallelism](#local-parallelism) · [分布式 / Distributed execution](#distributed-execution) · [使用指南 / User guide](#user-guide)
+[项目简介 / Overview](#overview) · [数学模型 / Mathematics](#mathematics) · [渲染 Pass / Rendering pass](#rendering-pass) · [本地并行 / Local parallelism](#local-parallelism) · [分布式 / Distributed execution](#distributed-execution) · [使用指南 / User guide](#user-guide) · [许可证 / License](#license)
 
 <a id="overview"></a>
 ## 0. 项目简介 / Overview
@@ -303,3 +303,14 @@ For ordinary first-attempt dispatch, the cost below uses busy count $`b_n`$, adm
 The score is $`\lfloor\mathrm{accepted\ samples}/\mathrm{execution\ seconds}\rfloor`$. Compare successful equivalent workloads; execution time includes preparation, scheduling, computation, acceptance, and cleanup. Distributed vs Local reports elapsed-time improvement, not processor-normalized efficiency.
 
 场景基于 [YANGGA 的 Japanese Room](https://sketchfab.com/3d-models/japanese-room-2561ec6948a44edd87650f3a454e3722)，遵循 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)，并修改了将棋布局、灯光和材质。 / Scene adapted from **Japanese Room** by **YANGGA**, licensed under **CC BY 4.0**, with Shogi layout, lighting, and material changes. [原始署名 / Original credit](docs/SCENE_CREDIT.txt).
+
+<a id="license"></a>
+## 许可证 / License
+
+本仓库原创源代码及项目文档（另有声明的内容除外）采用 [MIT 许可证](LICENSE)。Copyright (c) 2026 Yihao Zhou。
+
+Original source code and project documentation in this repository, except where otherwise noted, are licensed under the [MIT License](LICENSE). Copyright (c) 2026 Yihao Zhou.
+
+第三方场景、纹理、渲染示意图中的第三方内容及软件依赖继续遵循各自原许可。Japanese Room 相关内容保留 CC BY 4.0 署名与修改说明；详见[第三方声明](THIRD_PARTY_NOTICES.md)。
+
+Third-party scene content, textures, third-party content depicted in rendered illustrations, and software dependencies retain their original terms. Japanese Room content retains its CC BY 4.0 attribution and modification notices; see [third-party notices](THIRD_PARTY_NOTICES.md).
