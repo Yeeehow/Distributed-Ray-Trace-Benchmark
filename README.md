@@ -1,8 +1,8 @@
 # Distributed Ray Trace Benchmark
 
-**以 CPU 路径追踪比较串行、本地多进程和局域网分布式执行。**
+**以 CPU 路径追踪比较串行、本地多进程和局域网分布式执行性能。**
 
-**A CPU path-tracing benchmark comparing serial, local multiprocessing, and LAN execution.**
+**A CPU path-tracing benchmark comparing serial, local multiprocessing, and LAN execution performance.**
 
 [项目简介 / Overview](#overview) · [数学模型 / Mathematics](#mathematics) · [渲染 Pass / Rendering pass](#rendering-pass) · [本地并行 / Local parallelism](#local-parallelism) · [分布式 / Distributed execution](#distributed-execution) · [使用指南 / User guide](#user-guide) · [许可证 / License](#license)
 
